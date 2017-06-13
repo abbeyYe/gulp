@@ -1,0 +1,34 @@
+ @@include('include/header.html')
+<div id='box'>
+
+    <ul class="list-group-item-danger">
+        <li v-for='(value,index) in arr' v-text='value'></li>
+    </ul>
+    <input type="text" name="" class="form-control" value="" v-model='acc'>
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-primary" @click='add()'>Go!</button>
+    </span>
+
+
+    <input type="text" name="" class="form-control" value="" @keyup='show()' placeholder="过滤器">
+</div>
+<script>
+    var vm = new Vue({
+        data: {
+            arr: ['aa', 'bb', 'cc', 'dd'],
+            acc: ''
+        },
+        methods: {
+            add: function() {
+                // this.arr.push("rr")
+                this.arr.push(this.acc)
+            },
+            show: function() {
+                alert(1)
+            }
+        }
+    }).$mount("#box"); //手动挂载2
+</script>
+
+
+@@include('include/footer.html')

@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="../css/index.css" rel="stylesheet"></link>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>我是header</h1>
+    </header>
+
+    <!--<div class="container">-->
+<div id='box'>
+
+    <ul class="list-group-item-danger">
+        <li v-for='(value,index) in arr' v-text='value'></li>
+    </ul>
+    <input type="text" name="" class="form-control" value="" v-model='acc'>
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-primary" @click='add()'>Go!</button>
+    </span>
+
+
+    <input type="text" name="" class="form-control" value="" @keyup='show()' placeholder="过滤器">
+</div>
+<script>
+    var vm = new Vue({
+        data: {
+            arr: ['aa', 'bb', 'cc', 'dd'],
+            acc: ''
+        },
+        methods: {
+            add: function() {
+                // this.arr.push("rr")
+                this.arr.push(this.acc)
+            },
+            show: function() {
+                alert(1)
+            }
+        }
+    }).$mount("#box"); //手动挂载2
+</script>
+
+
+<!--</div>-->
+<h1>这是尾部</h1>
+</body>
+
+</html>

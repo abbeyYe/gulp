@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="../css/index.css" rel="stylesheet"></link>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>我是header</h1>
+    </header>
+
+    <!--<div class="container">-->
+<div id="box">
+    <div v-red :style="{width:'100px',height:'100px',background:'#ff0',position:'absolute',right:'0',top:'0'}">
+        dsf
+    </div>
+</div>
+<script>
+    Vue.directive('red', function() {
+        // this.el.style.background = "red";
+        var oDiv = this.el;
+        console.log(oDiv)
+    });
+    var vm = new Vue({
+        data: {
+            msg: 'advab'
+        },
+        methods: {
+            show: function() {
+                alert(1)
+            }
+        }
+    }).$mount("#box"); //手动挂载2
+</script>
+
+<!--</div>-->
+<h1>这是尾部</h1>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="../css/index.css" rel="stylesheet"></link>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>我是header</h1>
+    </header>
+
+    <!--<div class="container">-->
+
+<div class='aaa' style='width:200px;height:200px;'>
+    <!--<img src="../img/qiang_1.png" alt="">-->
+</div>
+<div id="adddata">
+
+    <textarea name="" id="" class="form-control" rows="3" required="required" v-model='t1'></textarea>
+
+    <button type="button" class="btn btn-primary" @click='add()'>添加留言</button>
+
+
+    <!--<ul class="list-group ">
+        <li class="list-group-item" v-for='(value,index) in myData' v-text='value'></li>
+        <li v-show='myData.length == 0' class="list-group-item">暂无数据...</li>
+    </ul>-->
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class='text-info'>
+                <th class='text-center'>名称</th>
+                <th class='text-center'>总额</th>
+                <th class='text-center'>服务费</th>
+                <th class='text-center'>优惠券抵扣</th>
+                <th class='text-center'>实付总额</th>
+            </tr>
+        </thead>
+        <tbody class='text-center'>
+            <tr v-for='(value,index) in myData'>
+                <td v-text='value.title'></td>
+                <td v-text='value.all'></td>
+                <td v-text='value.sev'></td>
+                <td v-text='value.cop'></td>
+                <td v-text='value.real'></td>
+            </tr>
+            <tr>
+                <td v-show='myData.length==0' colspan="5">暂无数据</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#adddata',
+        data: {
+            myData: [],
+            t1: ''
+        },
+        methods: {
+            add: function() {
+                /*if (this.t1 == '') {
+                    alert('请输入内容')
+                    return
+                };
+                this.myData.push(this.t1)*/
+                this.$http({
+                    url: 'http://123.57.29.208:8042/demand?a=get_demand_price',
+                    data: {
+                        id: this.t1
+                    }
+                }).then(function(res) {
+                    var data = res.data.data;
+                    this.myData.unshift({
+                        title: data.title,
+                        all: data.price,
+                        sev: data.service,
+                        cop: data.coupon,
+                        real: data.total
+                    });
+                    this.t1 = '';
+                    console.log(data)
+                });
+            },
+            getData: function() {
+                this.$http.get('http://123.57.29.208:8041/index_op/coupon?a=list'
+                    /*, {
+                                        status: 0,
+                                        page: 1,
+                                        page_count: 6
+                                    }*/
+                ).then(function(res) {
+                    console.log(res.data)
+                })
+            }
+        },
+        created: function() {
+            this.getData()
+        }
+    })
+</script>
+<!--</div>-->
+<h1>这是尾部</h1>
+</body>
+
+</html>

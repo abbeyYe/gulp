@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="../css/index.css" rel="stylesheet"></link>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>我是header</h1>
+    </header>
+
+    <!--<div class="container">-->
+<link type="" href="../css/animate.css">
+<style>
+    #ddd {
+        width: 100px;
+        height: 100px;
+        background: #ddf;
+    }
+</style>
+
+<span class="label label-warning">Label</span>
+
+
+<div id="box">
+    <button type="button" class="btn btn-success" @click='toggle()'>动画</button>
+    <div v-show='bSign' id="ddd" class="animated" transition='bounce'>
+
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            bSign: true
+        },
+        methods: {
+            toggle() {
+                this.bSign = !this.bSign;
+            }
+        },
+        transitions: { //定义动画名称
+            bounce: {
+                enterClass: 'zoomInLegt',
+                leaveClass: 'zoomOutRight'
+            }
+        }
+    })
+</script>
+<!--</div>-->
+<h1>这是尾部</h1>
+</body>
+
+</html>

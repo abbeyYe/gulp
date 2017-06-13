@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="img/css/sprite.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.js"></script>
+    <script src="../js/index.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>我是header</h1>
+    </header>
+    <style>
+        body {
+            padding: 20px 100px;
+        }
+        
+        .select {
+            background: #f6f6f6;
+        }
+        /*防止闪烁*/
+        
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <!--注释-->
+    <!--<div class='icon-qiang_4'></div>-->
+    <!--<img src="img/qiang_1.png" alt="">-->
+    <div id="todolist" class="container">
+
+        <a class="btn btn-info" href="html/计算属性的使用.html" role="button" target="_blank">计算属性的使用</a>
+
+        <a class="btn btn-primary" href="html/循环-重复数据.html" role="button" target="_blank">循环-重复数据</a>
+
+        <a class="btn btn-primary" href="html/添加数据.html" role="button" target="_blank">添加数据</a>
+
+        <a class="btn btn-primary" href="html/detail.html" role="button" target="_blank">detail</a>
+
+        <a class="btn btn-primary" href="html/seeded.html" role="button" target="_blank">seeded</a>
+
+        <a class="btn btn-primary" href="html/transition.html" role="button" target="_blank">transition</a>
+
+        <a class="btn btn-primary" href="html/自定义指令.html" role="button" target="_blank">自定义指令</a>
+
+        <form role="form">
+            <div class="form-group">
+                <label for="username">用户名：</label>
+                <input id="username" class="form-control" type="text" placeholder="请输入用户名" v-model="username">
+            </div>
+            <div class="form-group">
+                <label for="age">年龄：</label>
+                <input id="age" class="form-control" type="text" placeholder="请输入年龄" v-model="age">
+            </div>
+            <div class="form-group">
+                <!-- <button class="btn btn-primary" @click ="add($event)">添加</button>
+				<button class="btn btn-danger" @click="del()">重置</button> -->
+                <input type="button" class="btn btn-primary" @click="add()" value="添加">
+                <input type="reset" class="btn btn-danger" value="重置">
+            </div>
+        </form>
+        <hr>
+        <table class="table table-bordered table-hover">
+            <caption class="h2 text-info text-center">用户信息表</caption>
+            <tr class="text-center text-danger">
+                <td>index</td>
+                <td>name</td>
+                <td>age</td>
+                <td>oper</td>
+            </tr>
+            <tr class="text-center" v-for="(list,index,key) in myData">
+                <!--非转义 等价于{{index+1}} 优点：防止闪烁-->
+                <td v-text='index+1'></td>
+                <!--转义 等价于{{list.name}} 优点：防止闪烁-->
+                <td v-html='list.name'></td>
+                <td>{{list.age}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#layer" @click="nowIndex=index">删除</button>
+                </td>
+            </tr>
+            <tr v-show="myData.length!=0" class="text-right">
+                <td colspan="4">
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#layer" @click="nowIndex=-2">删除全部</button>
+                </td>
+            </tr>
+            <tr v-show="myData.length==0" class="text-center">
+                <td colspan="4">暂无数据...</td>
+            </tr>
+        </table>
+
+        <!-- 模态框 -->
+        <div role="dialog" class="modal fade" id="layer" v-bind:index-data="nowIndex">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+                        <h4 v-show="nowIndex==-2" class="modal-title">确认删除全部吗？</h4>
+                        <h4 v-show="nowIndex>-2" class="modal-title">确认删除吗？</h4>
+                    </div>
+                    <div class="modal-body text-right">
+                        <button class="btn btn-primary btn-sm" data-dismiss="modal">取消</button>
+                        <button class="btn btn-danger btn-sm" data-dismiss="modal" @click="delMsg(nowIndex)">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="box">
+        <button class="btn btn-primary" @click=get()>get</button>
+        <button class="btn btn-primary" @click=get1()>get1</button>
+        <button class="btn btn-primary" @click=post()>post</button>
+        <button class="btn btn-primary" @click=jsonp()>jsonp</button>
+        <button class="btn btn-primary" @click=jsonp1()>jsonp1</button>
+    </div>
+
+    <div id="search" style="margin-top: 20px">
+        <input class="" type="text" name="" v-model='t1' @keyup='get($event)' @keydown.down.prevent='changeDown()' @keydown.up.prevent='changeUp()'>
+        <ul class="list-group-item-info">
+            <li v-for="(value,index) in info" :class='{select:index==now}'>{{value}}</li>
+        </ul>
+        <h2 v-show="info.length==0">暂无数据</h2>
+    </div>
+
+
+    <!--footer-->
+    <h1>这是尾部</h1>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+@@include('include/header.html')
+<link type="" href="../css/animate.css">
+<style>
+    #ddd {
+        width: 100px;
+        height: 100px;
+        background: #ddf;
+    }
+</style>
+
+<span class="label label-warning">Label</span>
+
+
+<div id="box">
+    <button type="button" class="btn btn-success" @click='toggle()'>动画</button>
+    <div v-show='bSign' id="ddd" class="animated" transition='bounce'>
+
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            bSign: true
+        },
+        methods: {
+            toggle() {
+                this.bSign = !this.bSign;
+            }
+        },
+        transitions: { //定义动画名称
+            bounce: {
+                enterClass: 'zoomInLegt',
+                leaveClass: 'zoomOutRight'
+            }
+        }
+    })
+</script>
+@@include('include/footer.html')

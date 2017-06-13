@@ -1,0 +1,81 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="../css/index.css" rel="stylesheet"></link>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>我是header</h1>
+    </header>
+
+    <!--<div class="container">-->
+<div id='box'>
+    a => {{a}}
+    <br> b => {{b}}
+    <!--<button class="btn" @click='change()'>按钮</button>-->
+    <input type="" name="" value="" v-model='num' @keyup='change()'>
+    <br>
+    <span v-text='c'></span> 
+</div>
+<script>
+    var vm = new Vue({
+        // el: '#box',
+        aa: 11,
+        show: function() { //自定义属性
+            console.log("show")
+        },
+        data: {
+            a: 0,
+            num: '',
+            c: 1,
+            aa: ''
+        },
+
+        /*computed: {  默认调用get
+            b: function() {
+                // 业务逻辑代码
+                // return 值
+                return this.a + 1;
+            }
+        },*/
+        computed: {
+            b: {
+                get: function() { //
+                    return this.a + 2;
+                },
+                set: function(val) { //设置值
+                    this.a = val
+                }
+            }
+        },
+        methods: {
+            change: function() {
+                this.b = this.num
+            }
+        }
+    }).$mount("#box"); //手动挂载2
+    // vm.$mount('#box') 手动挂载1
+    // console.log(vm.$el); 元素
+    // console.log(vm.$data); data
+    vm.$el.style.background = "#fee";
+    console.log(vm.$options.aa);
+    vm.$options.show(); //获取自定义属性
+</script>
+
+
+<!--</div>-->
+<h1>这是尾部</h1>
+</body>
+
+</html>

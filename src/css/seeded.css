@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+p {
+  margin-bottom: 0; }
+
+.yd_w {
+  width: 100%; }
+
+.yd_c {
+  width: 1200px;
+  margin: 0 auto; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.of {
+  overflow: hidden; }
+
+.seeded-banner {
+  width: 100%;
+  /*height: 540px;
+    background: url(../img/seed-b.jpg) no-repeat;
+    background-size: 100% 100%;*/ }
+  .seeded-banner img {
+    width: 100%; }
+
+.seeded-main {
+  width: 940px;
+  margin: 0 auto;
+  margin-top: 67px; }
+  .seeded-main .s-title {
+    text-align: center; }
+  .seeded-main .s-content {
+    margin-top: 60px;
+    font-size: 16px; }
+    .seeded-main .s-content .s-subhead {
+      width: 106px;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      background: #30a484;
+      font-size: 18px;
+      text-align: center; }
+    .seeded-main .s-content .s-c-left {
+      width: 620px;
+      margin-top: 30px; }
+      .seeded-main .s-content .s-c-left > div {
+        margin-bottom: 18px; }
+      .seeded-main .s-content .s-c-left p {
+        height: 32px;
+        line-height: 32px; }
+        .seeded-main .s-content .s-c-left p a {
+          font-size: 16px;
+          color: #f95b5a;
+          text-decoration: underline; }
+      .seeded-main .s-content .s-c-left .img-wrap {
+        width: 30px;
+        text-align: center;
+        margin-right: 20px; }
+    .seeded-main .s-content .s-c-right {
+      width: 320px; }
+    .seeded-main .s-content .seed-apply-wrap {
+      position: relative; }
+      .seeded-main .s-content .seed-apply-wrap > img {
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+    .seeded-main .s-content .seed-apply {
+      width: 268px;
+      background: #ccfaf0;
+      float: right;
+      text-align: center;
+      padding: 0 24px; }
+      .seeded-main .s-content .seed-apply h1 {
+        font-size: 24px;
+        height: 60px;
+        line-height: 60px;
+        color: #30a484;
+        text-align: center;
+        margin-top: 0; }
+      .seeded-main .s-content .seed-apply .info-group {
+        background: #fff;
+        width: 100%;
+        padding-left: 8px;
+        height: 38px;
+        line-height: 38px;
+        margin-bottom: 8px; }
+        .seeded-main .s-content .seed-apply .info-group span {
+          color: #30a484;
+          font-size: 14px;
+          width: 65px;
+          text-align: left;
+          font-size: 16px;
+          font-weight: normal; }
+        .seeded-main .s-content .seed-apply .info-group input {
+          width: 138px;
+          border: none;
+          outline: none; }
+      .seeded-main .s-content .seed-apply button {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        background: #30a484;
+        color: #fff;
+        border: none;
+        outline: none;
+        margin: 15px 0;
+        font-size: 18px; }
+    .seeded-main .s-content .s-contact {
+      margin-top: 40px; }
+    .seeded-main .s-content .s-code {
+      margin-top: 15px;
+      text-align: right; }

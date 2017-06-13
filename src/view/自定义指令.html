@@ -1,0 +1,25 @@
+@@include('include/header.html')
+<div id="box">
+    <div v-red :style="{width:'100px',height:'100px',background:'#ff0',position:'absolute',right:'0',top:'0'}">
+        dsf
+    </div>
+</div>
+<script>
+    Vue.directive('red', function() {
+        // this.el.style.background = "red";
+        var oDiv = this.el;
+        console.log(oDiv)
+    });
+    var vm = new Vue({
+        data: {
+            msg: 'advab'
+        },
+        methods: {
+            show: function() {
+                alert(1)
+            }
+        }
+    }).$mount("#box"); //手动挂载2
+</script>
+
+@@include('include/footer.html')
