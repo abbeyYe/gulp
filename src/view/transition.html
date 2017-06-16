@@ -6,6 +6,20 @@
         height: 100px;
         background: #ddf;
     }
+    
+    .fade-transition {
+        transition: 1s all ease;
+    }
+    
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .5s
+    }
+    
+    .fade-enter,
+    .fade-leave-active {
+        opacity: 0;
+    }
 </style>
 
 <span class="label label-warning">Label</span>
@@ -13,7 +27,7 @@
 
 <div id="box">
     <button type="button" class="btn btn-success" @click='toggle()'>动画</button>
-    <div v-show='bSign' id="ddd" class="animated" transition='bounce'>
+    <div v-show='bSign' id="ddd" name='fade'>
 
     </div>
 </div>

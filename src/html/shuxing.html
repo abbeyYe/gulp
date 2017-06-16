@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <link href="../css/index.css" rel="stylesheet"></link>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>header</h1>
+    </header>
+
+    <!--<div class="container">-->
+
+<script src="../js/shuxing.js"></script>
+<style>
+    .class1 {
+        background: #f87;
+        color: #fff;
+    }
+    
+    .active {
+        width: 100px;
+        height: 100px;
+        background: #dfe;
+    }
+    
+    .changebac {
+        background: #3cc;
+    }
+</style>
+<div id="app" class="container">
+    <!--属性-->
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="" v-model='class1'>
+            <span class="label label-info">点击修改</span>
+        </label>
+        <div v-bind:class="{' class1 ':class1 }">
+            example example example
+        </div>
+    </div>
+
+    <!--表达式-->
+    {{345+3}}<br> {{ok?'yes':'no'}}
+    <br> {{msg.split('').join('')}}
+    <br>
+    <div v-bind:id="'list-'+di">
+        id name
+    </div>
+
+    <!--v-if & v-else & v-else-if-->
+    <p v-if='seen'>see me now</p>
+    <template v-if='ok'>
+        <pre><h1>title1</h1><h2 v-show='math>0.5'>title2</h2></pre>
+    </template>
+    <div v-if='math>0.5'>
+        <span class="label label-success">{{math}}</span>
+    </div>
+    <div v-else>
+        <span class="label label-danger">{{math}}</span>
+    </div>
+    <div v-if='msg === "a"'>
+        <span class="label label-info">输出a</span>
+    </div>
+    <div v-else-if='msg == "b"'>
+        <span class="label label-info">输出b</span>
+    </div>
+    <div v-else-if='msg == "c"'>
+        <span class="label label-info">输出c</span>
+    </div>
+    <div v-else>
+        <span class="label label-info">{{msg}}</span>
+    </div>
+
+    <!--参数-->
+    <pre><a v-bind:href='url' target="_blank">link</a></pre>
+
+    <!--双向绑定-->
+    <input type="" name="" value="" v-model='msg'>
+    <p>{{msg | capitalize}}</p>
+
+    <!--循环 v-for-->
+
+    <ul class="list-group">
+        <li class="list-group-item" v-for='(value,key,index) in mylist'>{{index+1}}.{{key}}:{{value}}</li>
+        <li class="list-group-item" v-for='n in 2' v-text='n'></li>
+    </ul>
+
+    <!--计算属性-->
+    <template>
+        <p>原始{{msg}}</p>
+        <p>翻转{{rev}}</p>
+        <p>{{link}}</p>
+    </template>
+
+    <!--样式绑定-->
+    <!--<div v-bind:class='{active:di,changebac:ok}'>-->
+    <div v-bind:class='[activeClass,changebac]'>
+        <div class="label label-warning" v-bind:style="{color:activeColor,fontSize:di+'px'}">Label</div>
+        <div class="label" v-bind:style="style">Label</div>
+    </div>
+</div>
+
+<!--</div>-->
+<h1>footer</h1>
+</body>
+
+</html>
