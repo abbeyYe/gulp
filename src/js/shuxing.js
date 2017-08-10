@@ -1,5 +1,56 @@
 // alert(1)
 $(function() {
+    // 定义一个组件  全局组件
+    var Aaa = Vue.component('runoob', { //组件名称   配置选项
+        data() {
+            return {
+                msg: "标题标题"
+            }
+        },
+        methods: {
+            change() {
+                this.msg = "change"
+            }
+        },
+        template: '<h3 @click=change()>{{msg}}</h3>'
+    })
+
+    // 自定义指令
+    /*Vue.directive('focus', {
+        inserted: function(el) {
+            el.focus()
+        }
+    })*/
+
+    new Vue({
+        el: "#dome",
+        data: {
+            a: 'aaa'
+        },
+        components: {
+            'ruuoob': {
+                data() {
+                    return {
+                        msg: "welcome",
+                        arr: ['ddd', 'age', 'ddw2']
+                    }
+                },
+                methods: {
+                    show1() {
+                        this.msg = 'hello world'
+                    }
+                },
+                template: '#aaa'
+            },
+            'aaa': {
+                template: '<h3>Aaa标题</h3>'
+            },
+            'bbb': {
+                template: '<h5>bbb标题</h5>'
+            }
+        },
+    })
+
     var app = new Vue({
         el: '#app',
         data: {
@@ -23,10 +74,21 @@ $(function() {
                 color: '#ffe',
                 fontSize: '14px',
                 background: "#f30"
-            }
+            },
+            counter: 0,
+            msg1: 'lets!',
+            msg2: '2',
+            checkbox: false,
+            checkoutname: [],
+            picked: "fistRadio",
+            food: ""
         },
         methods: {
-            change: function() {
+            show: function(msg) {
+                alert(msg)
+            },
+            keyCode: function(msg) {
+                alert(msg)
 
             }
         },
@@ -45,6 +107,18 @@ $(function() {
                 }
             }
         },
+        directives: {
+            focus: {
+                inserted: function(el) {
+                    el.focus();
+                }
+            },
+            alert1: {
+                inserted: function() {
+                    console.log('ddd')
+                }
+            }
+        },
         filters: {
             capitalize: function(value) {
                 if (!value) return ''
@@ -57,4 +131,67 @@ $(function() {
     /*document.write('web: ' + app.web);
     document.write('<br>');
     document.write('url: ' + app.url);*/
+
+    new Vue({
+        el: "#dome",
+        data: {
+            a: 'aaa'
+        },
+        components: {
+            'ruuoob': {
+                data() {
+                    return {
+                        msg: "welcome",
+                        arr: ['ddd', 'age', 'ddw2']
+                    }
+                },
+                methods: {
+                    show1() {
+                        this.msg = 'hello world'
+                    }
+                },
+                template: '#aaa'
+            }
+        },
+    })
+
+    new Vue({
+        el: "#dome1",
+        data: {
+            a: 'aaa'
+        },
+        components: {
+            'aaa': {
+                template: '<h3>Aaa标题</h3>'
+            },
+            'bbb': {
+                template: '<h5>bbb标题</h5>'
+            }
+        },
+    })
+
+    // 倒计时
+    var vm = new Vue({
+        el: '#example',
+        data() {
+            return {
+                time: 60, // 发送验证码倒计时
+                sendMsgDisabled: false
+            }
+        },
+        methods: {
+            send() {
+                let me = this;
+                me.sendMsgDisabled = true;
+                let interval = window.setInterval(function() {
+                    console.log(me.time)
+                    if ((me.time--) <= 0) {
+                        me.time = 60;
+                        me.sendMsgDisabled = false;
+                        window.clearInterval(interval);
+                    }
+                }, 1000);
+            }
+        }
+    })
 })

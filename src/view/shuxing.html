@@ -2,6 +2,10 @@
 
 <script src="../js/shuxing.js"></script>
 <style>
+    * {
+        box-sizing: border-box;
+    }
+    
     .class1 {
         background: #f87;
         color: #fff;
@@ -88,6 +92,113 @@
         <div class="label label-warning" v-bind:style="{color:activeColor,fontSize:di+'px'}">Label</div>
         <div class="label" v-bind:style="style">Label</div>
     </div>
+
+    <!--事件处理器-->
+    <template>
+        <button type="button" class="btn btn-default" @click="counter += 1" v-alert1>button</button>
+        <pre>这个按钮被点击了{{counter}}次</pre>
+        <button type="button" class="btn btn-default" @click="show('hei')">button</button>
+        <button type="button" class="btn btn-default" @click="show('hello')">button</button>
+    </template>
+
+    <!--事件修饰符-->
+    <template>
+        <input class="btn btn-danger" v-on:keyup.enter='keyCode("enter")' v-focus>
+        <input class="btn btn-default"v-on:keyup.alt.67='keyCode("alt.67")'>
+    </template>
+
+    <!--表单 单个复选框-->
+    <template>
+        <div class="input-group">
+            <input type="text" class="form-control" id="" placeholder="Search" v-model.lazy.trim='msg1'>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">{{msg1}}</button>
+            </span>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" id="" placeholder="Search" v-model.number='msg2'>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">{{msg2}}</button>
+            </span>
+        </div>
+    </template>
+
+    <!--表单 多个复选框-->
+    <template>
+        <p>复选框</p>
+        <div class="checkbox">
+            <label>
+                <input id="checkout" type="checkbox" value="" v-model='checkbox'>
+                {{checkbox}}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="first" type="checkbox" value="first" v-model='checkoutname'>first input
+            </label>
+            <label>
+                <input id="sec" type="checkbox" value="sec" v-model='checkoutname'>sec input
+            </label>
+            <label>
+                <input id="thi" type="checkbox" value="thi" v-model='checkoutname'>thi input
+            </label>
+            <div>选中项为：{{checkoutname}}</div>
+        </div>
+    </template>
+
+    <!--表单 单选框-->
+    <template>
+        <p>单选按钮</p>
+        <div class="radio">
+            <label>
+                <input type="radio" name="" id="fistRadio" value="fistRadio" v-model='picked'>
+                fistRadio
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="" id="secRadio" value="secRadio" v-model='picked'>
+                secRadio
+            </label>
+        </div>
+        <div>选中项为：{{picked}}</span>
+    </template>
+
+    <!--表单 select列表-->
+    <select v-model='food' placeholder="请选择">
+        <option value="">请选择</option>
+        <option value="fir">水果</option>
+        <option value="va">蔬菜</option>
+    </select>
+    <div>选中项为：{{food ? food:'无'}}</div>
+
+    <!--自定义指令-->
+
+
+</div>
+<div id="dome" class="container">
+    <!--组件-->
+    <ruuoob></ruuoob>
+</div>
+<template id="aaa">
+    <!--<h3 @click=show1()>标题3→{{msg}}</h3>-->
+    <!--<h1>标题</h1>-->
+    <ul>
+        <li v-for='value in arr'>{{value}}</li>
+        <!--<li>{{msg}}</li>-->
+    </ul>
+</template>
+<div id="dome1">
+    <button type="button" @click='a="aaa"' class="btn btn-info">aaa</button>
+    <button type="button" @click='a="bbb"' class="btn btn-info">bbb</button>
+    <component :is='a'></component>
+</div>
+<div id="example">
+    <button @click="send">
+      <span v-if="sendMsgDisabled">{{time+'秒后获取'}}</span>
+      <span v-if="!sendMsgDisabled">send</span>
+    </button>
 </div>
 
+<div></div>
 @@include('include/footer.html')

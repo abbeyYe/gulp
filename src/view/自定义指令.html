@@ -3,6 +3,7 @@
     <div v-red :style="{width:'100px',height:'100px',background:'#ff0',position:'absolute',right:'0',top:'0'}">
         dsf
     </div>
+    <div id="app" @click="alerta()">adasdads</div>
 </div>
 <script>
     Vue.directive('red', function() {
@@ -11,15 +12,28 @@
         console.log(oDiv)
     });
     var vm = new Vue({
+            el: '#box',
+            data: {
+                msg: 'advab'
+            },
+            methods: {
+                show: function() {
+                    alert(1)
+                }
+            }
+        }) //.$mount("#box"); //手动挂载2
+
+    var app = new Vue({
+        el: '#app',
         data: {
-            msg: 'advab'
+            aa: 1
         },
         methods: {
-            show: function() {
+            alerta: function() {
                 alert(1)
             }
         }
-    }).$mount("#box"); //手动挂载2
+    })
 </script>
 
 @@include('include/footer.html')

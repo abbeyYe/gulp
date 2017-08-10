@@ -21,3 +21,30 @@
     </header>
 
     <!--<div class="container">-->
+
+<div class="input-group">
+    <input type="text" class="form-control" id="username" placeholder="Search">
+    <span class="input-group-btn">
+        <button id="sbm" type="button" class="btn btn-default">Go!</button>
+    </span>
+</div>
+
+<div id="container">
+
+</div>
+<script>
+    $(function() {
+        $("#sbm").click(function() {
+            var val = $("#username").val();
+            console.log(val)
+            $("#container").html(val)
+        })
+    })
+</script>
+
+
+<!--</div>-->
+<h1>footer</h1>
+</body>
+
+</html>

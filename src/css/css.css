@@ -1,0 +1,191 @@
+@charset "UTF-8";
+.w200 {
+  width: 200px; }
+
+.h100 {
+  height: 100px; }
+
+.demo {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px; }
+
+.demo a.btn-primary {
+  display: block;
+  margin-bottom: 5px;
+  /*background: #fba linear-gradient(#fba4fa, #fba);*/
+  background: lightseagreen;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+
+.demo1 {
+  height: 300px;
+  width: 300px;
+  background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502355478128&di=9cc694cf1c0db2850699a62048bbdbfc&imgtype=0&src=http%3A%2F%2Fimg.tuku.cn%2Ffile_big%2F201503%2Fe82aae6058774031a0911807922d4b58.jpg) no-repeat center center;
+  background-size: cover;
+  /*方法一  多个子元素时 inline-block 产生的间距问题*/
+  /*display: table-cell;
+        text-align: center;
+        vertical-align: middle;*/
+  /*方法二 & 方法三  适用于1个子元素的垂直居中*/
+  /*position: relative;*/
+  /*方法四*/
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+ul {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-right: -20px; }
+
+li {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 1px solid #eee;
+  margin-right: 20px;
+  margin-bottom: 20px; }
+  li > div {
+    margin-top: 10px; }
+    li > div:first-child {
+      margin-top: 0; }
+
+.demo2 {
+  width: 100px;
+  height: 100px;
+  background: lightsalmon;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  background-clip: padding-box;
+  /*方法一*/
+  /*display: inline-block;*/
+  /*方法二*/
+  /*position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -50px 0 0 -50px;*/
+  /*方法三*/
+  /*position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;*/
+  margin-right: 5px; }
+
+.demo2:last-child {
+  margin-right: 0; }
+
+.demo3 {
+  width: 160px;
+  height: 80px;
+  margin-top: 50px;
+  margin-left: 20px;
+  background: lightcoral;
+  box-shadow: 0 0 0 10px lightsalmon, 0 0 0 20px lightblue, 4px 4px 10px 25px #eee;
+  -webkit-transition: all ease .6s;
+  transition: all ease .6s; }
+
+.demo3:hover {
+  background: lightblue;
+  box-shadow: 0 0 0 10px lightcoral, 0 0 0 20px lightsalmon, 4px 4px 10px 25px #eee; }
+
+.demo4 {
+  width: 200px;
+  height: 100px;
+  /*background: lightgreen;*/
+  /*border: 4px solid lightseagreen;*/
+  outline: 1px dashed lightseagreen;
+  outline-offset: -8px;
+  border-radius: 4px;
+  background: url(//static.yidao.info/static/images/activity/seed-icon3.png) no-repeat lightcyan;
+  background-size: 20%;
+  padding: 10px;
+  /*background-origin: padding-box;*/
+  /*background-position: left 10px bottom 10px;*/
+  background-position: calc(100% - 10px) calc(100% - 10px); }
+
+.demo5 {
+  background: lightcyan;
+  padding: 10px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .demo5 > div {
+    width: 180px;
+    height: 80px;
+    background: lightseagreen;
+    padding: 10px;
+    border-radius: 8px; }
+
+.demo6 {
+  background: lightcyan;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 0 0 8px lightseagreen;
+  outline: 8px solid lightseagreen; }
+
+.demo7 {
+  background: -webkit-linear-gradient(lightgoldenrodyellow 33.3%, lightgreen 0, lightgreen 66.6%, yellowgreen 0);
+  background: linear-gradient(lightgoldenrodyellow 33.3%, lightgreen 0, lightgreen 66.6%, yellowgreen 0);
+  background-size: 100% 35px; }
+
+.demo8 {
+  background: -webkit-linear-gradient(45deg, lightblue 50%, lightseagreen 0);
+  background: linear-gradient(45deg, lightblue 50%, lightseagreen 0);
+  background-size: 50px 50px; }
+
+.demo9 {
+  background: -webkit-repeating-linear-gradient(60deg, lightblue, lightblue 20px, lightseagreen 0, lightseagreen 40px);
+  background: repeating-linear-gradient(30deg, lightblue, lightblue 20px, lightseagreen 0, lightseagreen 40px); }
+
+.demo10 {
+  background: #fff;
+  background-image: -webkit-linear-gradient(left, rgba(250, 0, 0, 0.5) 50%, transparent 0), -webkit-linear-gradient(rgba(250, 0, 0, 0.5) 50%, transparent 0);
+  background-image: linear-gradient(90deg, rgba(250, 0, 0, 0.5) 50%, transparent 0), linear-gradient(rgba(250, 0, 0, 0.5) 50%, transparent 0);
+  background-size: 30px 30px; }
+
+.demo11 {
+  background: lightgreen;
+  background-image: -webkit-linear-gradient(#fff 1px, transparent 0), -webkit-linear-gradient(left, #fff 1px, transparent 0);
+  background-image: linear-gradient(#fff 1px, transparent 0), linear-gradient(90deg, #fff 1px, transparent 0);
+  background-size: 30px 30px; }
+
+.demo12 {
+  background: lightgrey;
+  background-image: -webkit-radial-gradient(#fff 25%, transparent 0);
+  background-image: radial-gradient(#fff 25%, transparent 0);
+  background-size: 30px 30px; }
+
+.demo13 {
+  border: 20px solid transparent;
+  background: #fff;
+  -webkit-border-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502369869305&di=6d26cf40d9b94b90eca702fd575c8bff&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fw2%2F34%2Fd%2F64.jpg) 30 30 stretch;
+  border-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502369869305&di=6d26cf40d9b94b90eca702fd575c8bff&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fw2%2F34%2Fd%2F64.jpg) 30 30 stretch; }
